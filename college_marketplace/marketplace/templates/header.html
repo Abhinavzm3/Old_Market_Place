@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>College Marketplace</title>
+    <link rel="icon" type="image/png" href="{% static 'logo.png' %}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add custom CSS for your website -->
+    <link href="/your-path-to-uicons/css/uicons-[your-style].css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+
+
+
+  
+
+
+
+
+
+    <style>
+        /* Custom CSS styles */
+        /* Header styles */
+        /* Product listings styles */
+        /* Product details page styles */
+        /* Footer styles */
+
+        
+.slider{height:250px;
+    margin:auto;
+    position:relative;
+    width:90%;
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+}
+    
+
+.slide-track{
+    display:flex;
+    width:calc(250px*18);
+
+}
+
+.slide{height:200px;
+width:250px;
+display:flex;
+align-item:center;
+padding:15px;
+perspective:100px;}
+
+
+img2.{width:100%;
+transition:transform 1s;}
+
+
+
+img2:hover{
+    transform:translateZ(20px);
+}
+
+
+
+
+
+
+
+        .card-img-top {
+            width: 200px;
+            height: 150px;
+          }
+          
+
+
+        html,body
+{
+    margin: 2px;
+    padding: 2px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: #fff;
+}
+      
+
+
+
+
+
+       
+          
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #fff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2px;
+            padding: 2px;
+
+          
+   
+            
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+              background: linear-gradient(to bottom right, #add8e6, #b19cd9);
+            /* Ensure the gradient covers the entire body */
+            background-size: 100% 100%;
+        }
+        .product {
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding: 10px;
+            display: flex;
+        }
+        .product img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+        .product-details {
+            flex: 1;
+        }
+        .product-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .product-description {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .product-price {
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        .circular-image {
+            width: 64px; 
+            height: 64px; 
+            border-radius: 50%;
+            object-fit: cover; 
+            transition: transform 0.3s;
+        }
+
+        .category-link:hover .circular-image {
+            transform: scale(1.3); 
+        }
+        
+    </style>
+</head>
+<body >
+    {% load static %}    <!-- Header -->
+    <header  >
+        <nav class="navbar navbar-expand-lg navbar-light bg-light "  >
+            <a class="navbar-brand" href="#"> <img src="{% static 'logo.png' %}" style="width:60px;height:50px;margin:2px">
+               <p style="font-family:cursive"> Kuch Khareed Lo</p></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link"  href="{% url 'front_page' %}"><img src="{% static 'home.png' %}" style="width:40px;height:40px;margin:2px;"> <br><b>Home</b></a>
+                </li>
+
+                <li class="nav-item">
+                  
+                  <a href="{% url 'add_product' %}" class="nav-link"><img src="{% static 'add-to-cart.png' %}" style="width:50px;height:40px;margin:2px"><br><b>Add Product</b></a>
+
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'about' %}" class="nav-link"><img src="{% static 'group (1).png' %}" style="width:40px;height:40px;margin:2px"><br><b>About Us</b></a>
+                </li>
+               
+                <li class="nav-item">
+            
+                    {% if user.is_authenticated %}
+                
+                <p> <a href="{% url 'signout' %}" class="nav-link"><img src="{% static 'sign-out-alt.png' %}" style="width:40px;height:40px;margin:2px"><br><b>Sign Out</b></a></p>
+                {% endif %}
+                </li>
+              </ul>
+             
+            </div>
+          </nav>
+          {% comment %} <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'front_page' %}">
+            <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search" aria-label="Search">
+
+            <button class="btn btn-outline-success my-2 my-sm-0" style="border:none"type="submit"><img src="{% static 'search (1).png' %}" style="width:40px;height:40px;margin:2px"></button>
+          </form> {% endcomment %}
+    </header>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

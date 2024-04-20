@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content%}
+{% comment %} 
+<h1>Add Product</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Product</button>
+</form> {% endcomment %}
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body> {% endcomment %}
+    
+
+    <h1 align="center" >Add Product</h1>
+    <form method="post" enctype="multipart/form-data" style="box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);">
+        {% csrf_token %}
+        <label for="id_name">Name:</label>
+        <input type="text" id="id_name" name="name" required placeholder="Product Name...">
+
+        <label for="id_description">Description:</label>
+        <textarea id="id_description" name="description" required placeholder="describe how old is .."></textarea>
+
+        <label for="id_price">Price:</label>
+        <input type="text" id="id_price" name="price" required>
+
+        <label for="id_whatsapp_number">WhatsApp Number:</label>
+        <input type="text" id="id_whatsapp_number" name="whatsapp_number" required>
+
+        <label for="id_image">Image:</label>
+        <input type="file" id="id_image" name="image">
+
+        
+        <div class="form-group">
+            <label for="id_category">Category:</label>
+            <select id="id_category" name="category" class="form-control">
+                <option value="books">Books and Copy</option>
+                <option value="accessories">Accessories</option>
+                <option value="electronics">Electronics</option>
+                <option value="essentials">Daily Essentials</option>
+                <option value="stationery">Stationery</option>
+                <option value="sports">Sports</option>
+            </select>
+        </div>
+<br><br>
+        <button type="submit" style="color:blue">Add Product</button>
+    </form>
+    {%endblock%}

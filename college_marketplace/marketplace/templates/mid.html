@@ -1,0 +1,13 @@
+
+{%extends "base.html"%}
+{%block content%}
+
+
+<div class="slider">
+  <div class="slider-track">
+{%for products in products %}
+    <div class="slide">
+
+      <img class="img2"src="{{products.image.url}}">
+      {%endfor%}
+{%endblock%}

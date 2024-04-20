@@ -1,0 +1,71 @@
+{% comment %} <!-- login.html -->
+<h1>Login</h1>
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form> {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>{%load static%}
+<link rel="icon" type="image/png" href="{% static 'logo.png' %}">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fafafa;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        width: 320px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        text-align: center;
+    }
+    h1 {
+        margin-bottom: 20px;
+    }
+    form {
+        margin-top: 20px;
+    }
+    input[type="text"],
+    input[type="password"],
+    button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    button {
+        background-color: #3897f0;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>{%load static%}
+    <div class="container" style="box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);">
+        <h1>Kuch Khareed Lo<br><br> <img src="{% static 'logo.png' %}" style="width:80px;height:70px;margin:2px"></h1>
+        <form method="post" action="{% url 'login' %}" >
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username or Email">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit">Log In</button><br><br><br>
+        </form>
+        <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+    </div>
+</body>
+</html>
